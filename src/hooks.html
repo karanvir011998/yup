@@ -1,0 +1,71 @@
+
+Hooks
+Basics Hooks 
+1 useState
+2 useEffect
+3 useContext
+Additional Hooks
+4 useReducer
+5 useCallback
+6 useMemo
+7 useRef
+8 useImpertiveHandle
+9 useLayoutEffect
+10 useDebugValue
+
+Hooks are a new addition to react versin 16.8 which allows
+you to use react features without having to write a class.
+Hooks dont work inside the classes.
+
+OR  
+Hooks are the new feature introduced in the React 16.8 version. It allows you to use state and other React features without writing a class.
+Hooks are the functions which "hook into" React state and lifecycle features from function components. It does not work inside classes.
+
+Hooks are backward-compatible, which means it does not contain any breaking changes. Also, it does not replace your knowledge of React concepts.
+
+Reason to make Hooks
+    1. classes dont minify very well and make hot reloading very unreliable
+    2. backward-compatible
+
+Rules to make Hooks
+    Call hooks at the top level
+    call hooks from React functions
+    Hooks can only be called inside React function components.
+    Hooks cannot be conditional
+
+Custom Hooks
+    these are the javascript functions which starts with thw name of use.
+    These are made so that we can use them again in the code.
+    const useName = name =>{
+        },[title])
+    }
+
+UseState Hooks
+
+it is a hook that allows to add React state to fn component.
+We call it inside a fn component to add some local state to it.
+use state returns a Pair
+
+current state and a functions that lets you update it.
+
+call this fn from an event lsitener or somewhere else.
+
+Ex.
+Importing usestate from react
+import React,{useState} from 'react';
+
+useState("karan");
+More ex:
+
+const [name, setName] = useState("karan");
+
+function hookex (){
+    const name = useState("karan");
+}
+
+Accesing state
+state variable can be used directly.
+Your name is {name}.
+
+Updating state
+setName("hello");

@@ -1,0 +1,63 @@
+install Yup
+
+npm i Yup
+
+then import yup in the new validation js file which will be rendered.
+
+import * as yup from "yup";
+
+then in the export we can create a new variable with yup.
+yup gives an array of object.
+the given below is an example.
+
+export const User = yup.object().shape(
+    {
+        name:yup.string().required(),
+        email:yup.string().email().required(),
+        password:yup.string().min(4).max(10).required(),
+        
+    }
+)
+
+Then we have to import the variable of yup which we create in the validation to the main file which is to be rendered.
+below is the example.
+
+
+import { User } from "./UserValidation";
+
+const form = () =>{
+    const create = async (e)=>{
+        e.preventDefault();
+        we are getting the data from the input fields in the obj.
+
+        let formData = {
+            name:e.target[0].value,
+            email:e.target[1].value,
+            password:e.target[2].value,
+        };
+        here we are validating with the isValid fn and getting the data in that fn.
+        const isValid = await User.isValid(formData);
+        console.log(isValid);//shows whether the value is true or false
+    };
+    return(
+        <!-- <div >
+            <form onSubmit={create}>
+            <h1>Login Page</h1>
+        <span>Name:</span>
+        <input className="name" type="text" name="text"/>
+        <span className="spanname"></span>
+        <br/>
+        <span>Email:</span>
+        <input className="email" type="email" name="email"   />
+        <span className="spanemail"></span>
+        <br/>
+        <label>Password:</label>
+        <input type="password" name="pass" />
+        <span className="spanpass"></span>
+        <br/>
+        <button type="submit" >Submit</button>
+        </form>
+        </div> -->
+    )
+}
+return default form;
